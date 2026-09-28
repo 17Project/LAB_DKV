@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "SchoolProfile": {
+      "title": "SchoolProfile",
+      "description": "School institutional identity, lab configuration, and letterhead logos for cross-device access",
+      "type": "object",
+      "properties": {
+        "schoolName": { "type": "string", "maxLength": 200 },
+        "foundation": { "type": "string", "maxLength": 200 },
+        "address": { "type": "string", "maxLength": 500 },
+        "phone": { "type": "string", "maxLength": 100 },
+        "website": { "type": "string", "maxLength": 200 },
+        "email": { "type": "string", "maxLength": 200 },
+        "nss": { "type": "string", "maxLength": 50 },
+        "npsn": { "type": "string", "maxLength": 50 },
+        "operationalPermit": { "type": "string", "maxLength": 100 },
+        "accreditation": { "type": "string", "maxLength": 50 },
+        "region": { "type": "string", "maxLength": 200 },
+        "totalComputers": { "type": "number" },
+        "computerPrefix": { "type": "string", "maxLength": 20 },
+        "headOfDepartment": { "type": "string", "maxLength": 200 },
+        "headOfDeptTitle": { "type": "string", "maxLength": 200 },
+        "logoLeft": { "type": "string", "maxLength": 500000 },
+        "logoRight": { "type": "string", "maxLength": 500000 },
+        "updatedAt": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["schoolName", "foundation", "totalComputers"]
+    },
+    "LabSession": {
+      "title": "LabSession",
+      "description": "Individual lab usage session and computer condition inspection log",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "dayAndDate": { "type": "string", "maxLength": 100 },
+        "rawDate": { "type": "string", "maxLength": 50 },
+        "teacherName": { "type": "string", "maxLength": 200 },
+        "startTime": { "type": "string", "maxLength": 20 },
+        "endTime": { "type": "string", "maxLength": 20 },
+        "subject": { "type": "string", "maxLength": 200 },
+        "className": { "type": "string", "maxLength": 100 },
+        "labName": { "type": "string", "maxLength": 100 },
+        "overallInitialLab": { "type": "string", "maxLength": 100 },
+        "overallFinalLab": { "type": "string", "maxLength": 100 },
+        "items": { "type": "array" },
+        "headOfDepartment": { "type": "string", "maxLength": 200 },
+        "headOfDeptTitle": { "type": "string", "maxLength": 200 },
+        "createdAt": { "type": "string", "maxLength": 100 },
+        "updatedAt": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["id", "dayAndDate", "rawDate", "items"]
+    }
+  },
+  "firestore": {
+    "/settings/{settingId}": {
+      "schema": "SchoolProfile",
+      "description": "Global school configuration, department settings, and custom logo images accessed by all school devices"
+    },
+    "/sessions/{sessionId}": {
+      "schema": "LabSession",
+      "description": "Log records of lab computer checks and usage history accessible across devices"
+    }
+  }
+}

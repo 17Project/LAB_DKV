@@ -1,0 +1,6 @@
+{
+  "name": "Kartu Kontrol Lab Komputer - SMK Patria Dharma",
+  "description": "Sistem digitalisasi dan cetak Kartu Kontrol Penggunaan Lab Komputer SMK Patria Dharma Selatpanjang",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
